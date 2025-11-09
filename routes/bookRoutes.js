@@ -1,5 +1,5 @@
 import express from 'express'
-import { create, remove, getBook } from '../controllers/bookController.js'
+import { create, remove, getBook, inviteUser } from '../controllers/bookController.js'
 import authMiddleware from '../middleware/authMiddleware.js'
 
 const router = express.Router()
@@ -8,5 +8,6 @@ const router = express.Router()
 router.post('/create', authMiddleware, create)
 router.delete('/remove/:id', authMiddleware, remove)
 router.get('/my-books', authMiddleware, getBook)
+router.post('/invite', authMiddleware, inviteUser)
 
 export default router
